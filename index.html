@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashflow UMKM Pro</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+</head>
+<body>
+  
+  <div class="app-container">
+    <header class="glass-header">
+      <h1>Inventaris & Kas</h1>
+      <button id="installBtn" class="btn-neon" style="display: none;">Install App</button>
+    </header>
+
+    <main>
+<section class="report-section glass-panel">
+  <div class="report-header">
+    <h2>Riwayat Transaksi</h2>
+    <select id="filterType" onchange="renderTransactions()" class="neon-input">
+      <option value="all">Semua Transaksi</option>
+      <option value="cash_in">Uang Masuk</option>
+      <option value="cash_out">Uang Keluar</option>
+    </select>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="neon-table">
+      <thead>
+        <tr>
+          <th>Tanggal</th>
+          <th>Keterangan</th>
+          <th>Tipe</th>
+          <th>Jumlah</th>
+        </tr>
+      </thead>
+      <tbody id="transactionTableBody">
+        </tbody>
+    </table>
+  </div>
+</section>
+      <section class="dashboard-cards">
+        <div class="card neon-blue">
+          <h3>Kas Masuk</h3>
+          <p>Rp 5.400.000</p>
+        </div>
+        <div class="card neon-pink">
+          <h3>Total Stok</h3>
+          <p>142 Item</p>
+        </div>
+      </section>
+
+      <section class="action-area">
+        <button class="btn-action" onclick="alert('Buka Modal Tambah Kategori')">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          Tambah Kategori
+        </button>
+      </section>
+    </main>
+  </div>
+
+  <script src="db.js"></script>
+  <script src="app.js"></script>
+<div id="categoryModal" class="modal-overlay">
+  <div class="modal-content glass">
+    <div class="modal-header">
+      <h2 id="modalTitle">Tambah Kategori</h2>
+      <button class="close-btn" onclick="closeModal()">×</button>
+<section id="categoryList" class="category-grid"></section>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="categoryId">
+      <div class="input-group">
+        <label>Nama Kategori</label>
+        <input type="text" id="catName" placeholder="Contoh: Elektronik">
+      </div>
+      <div class="input-group">
+        <label>Pilih Icon (Emoji/SVG)</label>
+        <div class="icon-picker">
+          <span onclick="selectIcon('??')">??</span>
+          <span onclick="selectIcon('??')">??</span>
+          <span onclick="selectIcon('??')">??</span>
+          <span onclick="selectIcon('??')">??</span>
+        </div>
+        <input type="text" id="catIcon" readonly placeholder="Pilih icon di atas">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-neon" onclick="saveCategory()">Simpan Kategori</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
