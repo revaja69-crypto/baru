@@ -1,9 +1,8 @@
-// Inisialisasi Database
-const db = new Dexie('CashflowUMKMPro_DB');
+import Dexie from 'dexie';
 
-// Skema Tabel
+export const db = new Dexie('CashflowInventoryDB');
 db.version(1).stores({
-  categories: '++id, name, icon', 
-  inventory: '++id, name, categoryId, stock, buyPrice, sellPrice',
-  transactions: '++id, type, amount, date, description, relatedItemId' 
+  categories: '++id, name, icon',
+  inventory: '++id, name, categoryId, stock, price',
+  transactions: '++id, type, amount, method, date, description'
 });
