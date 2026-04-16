@@ -1,20 +1,12 @@
 {
-  "name": "Cashflow UMKM Pro",
-  "short_name": "Cashflow",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#0F172A",
-  "theme_color": "#FF2A85",
+  "short_name": "CashflowPro",
+  "name": "Cashflow UMKM Pro Desktop",
   "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+    { "src": "favicon.ico", "sizes": "64x64 32x32 24x24 16x16", "type": "image/x-icon" },
+    { "src": "logo192.png", "type": "image/png", "sizes": "192x192" }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a"
 }
