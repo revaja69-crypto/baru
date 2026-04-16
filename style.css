@@ -1,120 +1,73 @@
-/* Reset & Base */
+/* Base & Reset */
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
 body { background-color: #0F172A; color: #F8FAFC; overflow-x: hidden; }
 
-/* Layout */
-.app-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+/* Layout Utama */
+.app-container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
-/* Glassmorphism Header */
-.glass-header {
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 30px;
+/* Glassmorphism */
+.glass-header, .glass-panel, .glass {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
+.glass-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; margin-bottom: 30px; }
+.glass-panel { padding: 20px; margin-top: 30px; }
 
-/* Neon Cards */
-.dashboard-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
-.card {
-  padding: 25px; border-radius: 24px; background: #1E293B;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-}
+/* Dashboard Cards Neon */
+.dashboard-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.card { padding: 25px; border-radius: 24px; background: #1E293B; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
 .card:hover { transform: translateY(-5px); }
+.neon-blue { border: 2px solid #00F0FF; box-shadow: 0 0 15px rgba(0, 240, 255, 0.2); }
+.neon-blue h3 { color: #00F0FF; margin-bottom: 10px; }
+.neon-blue p { font-size: 24px; font-weight: bold; }
+.neon-pink { border: 2px solid #FF2A85; box-shadow: 0 0 15px rgba(255, 42, 133, 0.2); }
+.neon-pink h3 { color: #FF2A85; margin-bottom: 10px; }
+.neon-pink p { font-size: 24px; font-weight: bold; }
 
-.neon-blue { border: 2px solid #00F0FF; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
-.neon-blue h3 { color: #00F0FF; }
-
-.neon-pink { border: 2px solid #FF2A85; box-shadow: 0 0 15px rgba(255, 42, 133, 0.3); }
-.neon-pink h3 { color: #FF2A85; }
-
-/* Smooth Action Buttons */
+/* Buttons */
+.action-area { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
 .btn-action {
-  background: linear-gradient(135deg, #7C3AED, #DB2777);
-  color: white; border: none; padding: 15px 30px; border-radius: 50px;
-  font-weight: bold; font-size: 16px; cursor: pointer;
-  display: flex; align-items: center; gap: 10px;
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #FF2A85, #DB2777); color: white;
+  border: none; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer;
+  transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(219, 39, 119, 0.4);
 }
-.btn-action:hover {
-  box-shadow: 0 0 20px rgba(219, 39, 119, 0.6);
-  transform: scale(1.05);
-}
+.btn-action:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(219, 39, 119, 0.8); }
 
 .btn-neon {
   background: transparent; color: #00F0FF; border: 2px solid #00F0FF;
-  padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: bold;
-  transition: all 0.3s;
+  padding: 10px 20px; border-radius: 12px; cursor: pointer; font-weight: bold; transition: all 0.3s;
 }
 .btn-neon:hover { background: #00F0FF; color: #0F172A; box-shadow: 0 0 15px #00F0FF; }
+.close-btn { background: transparent; color: white; border: none; font-size: 24px; cursor: pointer; }
+
+/* Kategori Grid */
+.category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; }
+.category-badge {
+  background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px; border-radius: 16px; text-align: center; transition: all 0.3s ease;
+}
+.category-badge:hover { border-color: #FF2A85; box-shadow: 0 0 15px rgba(255, 42, 133, 0.4); transform: translateY(-3px); }
+.category-icon { font-size: 36px; display: block; margin-bottom: 10px; filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6)); }
+
+/* Input & Table */
+.neon-input { background: #0F172A; color: #00F0FF; border: 1px solid #00F0FF; padding: 12px; border-radius: 8px; outline: none; }
+.report-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.table-responsive { overflow-x: auto; }
+.neon-table { width: 100%; border-collapse: collapse; text-align: left; }
+.neon-table th { padding: 15px; color: #a1a1aa; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.neon-table td { padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+.text-green { color: #4ade80; font-weight: bold; }
+.text-red { color: #f87171; font-weight: bold; }
+
+/* Modal */
 .modal-overlay {
   display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px); z-index: 100;
   justify-content: center; align-items: center;
 }
-.modal-content.glass {
-  background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(0, 240, 255, 0.3);
-  padding: 30px; border-radius: 24px; width: 90%; max-width: 450px;
-  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
-  transform: scale(0.8); transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.modal-overlay.active { display: flex; }
-.modal-overlay.active .modal-content { transform: scale(1); }
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.category-badge {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 16px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.category-badge:hover {
-  border-color: #FF2A85;
-  box-shadow: 0 0 15px rgba(255, 42, 133, 0.4);
-  transform: translateY(-3px);
-}
-
-.category-icon {
-  font-size: 28px;
-  margin-bottom: 8px;
-  display: block;
-  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.8)); /* Efek ikon bercahaya */
-}
-.glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 20px;
-  padding: 20px;
-  margin-top: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.report-header {
-  display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
-}
-
-.neon-input {
-  background: #0F172A; color: #00F0FF;
-  border: 1px solid #00F0FF; padding: 10px; border-radius: 8px;
-  outline: none;
-}
-
-.neon-table {
-  width: 100%; border-collapse: collapse; text-align: left;
-}
-.neon-table th {
-  padding: 15px; color: #a1a1aa; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.neon-table td {
-  padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-.text-green { color: #4ade80; }
-.text-red { color: #f87171; }
+.modal-content { width: 90%; max-width: 400px; padding: 30px; box-shadow: 0 0 30px rgba(0, 240, 255, 0.1); }
+.modal-overlay.active { display: flex; animation: fadeIn 0.3s ease forwards; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
